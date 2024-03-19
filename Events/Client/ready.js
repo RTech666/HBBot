@@ -12,11 +12,13 @@ module.exports = {
         });
 
         if (mongoose.connect) {
-            console.log('Connection to MongoDB is successful.');
+            console.log('Connection to HBSDiscord MongoDB is successful.');
         }
 
         const loopStatus = [
-            "Bot created by RTech."
+            "Bot created by RTech.",
+            "my pp hurt",
+            "andres loves playing destiny"
         ]
 
         setInterval(() => {

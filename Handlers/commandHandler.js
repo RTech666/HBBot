@@ -6,7 +6,7 @@ function loadCommands(client) {
     let commandsArray = [];
 
     const commandsFolder = fs.readdirSync('./Commands');
-    
+
     for (const folder of commandsFolder) {
         const commandFiles = fs.readdirSync(`./Commands/${folder}`).filter((file) => file.endsWith('.js'));
 
@@ -14,16 +14,18 @@ function loadCommands(client) {
             const commandFile = require(`../Commands/${folder}/${file}`);
 
             client.commands.set(commandFile.data.name, commandFile);
+
             commandsArray.push(commandFile.data.toJSON());
 
-            table.addRow(file, "Loaded")
+            table.addRow(file, "loaded");
+
             continue;
         }
     }
 
     client.application.commands.set(commandsArray);
 
-    return console.log(table.toString(), "\nAll commands have loaded.\n")
+    return console.log(table.toString(), "\nLoaded all the slash commands.\n")
 }
 
 module.exports = {loadCommands};
